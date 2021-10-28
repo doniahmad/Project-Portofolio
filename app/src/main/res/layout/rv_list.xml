@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/card"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="4dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp">
+
+    <RelativeLayout
+        android:id="@+id/rv_layout_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_list"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="10dp"
+            android:layout_marginVertical="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_title_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/img_list"
+            android:layout_toEndOf="@id/img_list"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_desc_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desc"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:fontFamily="@font/roboto_light"
+            android:textSize="9sp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/img_list"
+            android:layout_toEndOf="@id/img_list"
+            android:layout_below="@id/tv_title_list"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
