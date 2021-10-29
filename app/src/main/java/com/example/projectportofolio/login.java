@@ -67,8 +67,12 @@ public class login extends AppCompatActivity {
                                 UserManager.setInstance(target);
                                 startActivity(new Intent(login.this, MainActivity.class));
                                 finish();
-                            } else
+
+                                closeContextMenu();
+                            } else {
                                 Toast.makeText(login.this, "User isn't exist!", Toast.LENGTH_SHORT).show();
+                            }
+                            closeContextMenu();
                         }
                     }
                 });

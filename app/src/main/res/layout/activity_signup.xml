@@ -15,8 +15,8 @@
        android:text="Sign up"
        android:textColor="#ffffff"
        android:textSize="30dp"
-       android:paddingLeft="160dp"
-       android:paddingTop="50dp"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="30dp"
        />
 
    <TextView
@@ -37,11 +37,9 @@ x
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@+id/signup_userid"
-       android:layout_alignParentEnd="true"
-       android:layout_alignParentRight="true"
        android:layout_marginTop="11dp"
-       android:layout_marginEnd="40dp"
-       android:layout_marginStart="40dp"
+       android:layout_marginLeft="40dp"
+       android:layout_marginRight="40dp"
        android:background="@drawable/edit_text_corner_radius"
        android:elevation="4dp"
        android:padding="13dp" />
@@ -54,18 +52,18 @@ x
        android:textSize="11dp"
        android:layout_below="@+id/signup_idusertext"
        android:textColor="#ffffff"
-       android:layout_marginRight="42dp"
-       android:layout_marginLeft="42dp"
+       android:layout_marginLeft="40dp"
+       android:layout_marginRight="40dp"
        android:layout_marginTop="24dp"
        />
 
    <EditText
        android:id="@+id/signup_idpassword"
-       android:layout_width="329dp"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@+id/signup_password"
-       android:layout_marginStart="40dp"
-       android:layout_marginEnd="40dp"
+       android:layout_marginLeft="40dp"
+       android:layout_marginRight="40dp"
        android:layout_marginTop="11dp"
        android:background="@drawable/edit_text_corner_radius"
        android:padding="13dp"
@@ -80,18 +78,18 @@ x
        android:textSize="11dp"
        android:layout_below="@+id/signup_idpassword"
        android:textColor="#ffffff"
-       android:layout_marginRight="42dp"
-       android:layout_marginLeft="42dp"
+       android:layout_marginLeft="40dp"
+       android:layout_marginRight="40dp"
        android:layout_marginTop="24dp"
        />
 
    <EditText
        android:id="@+id/signup_idemail"
-       android:layout_width="329dp"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@+id/signup_emailtext"
-       android:layout_marginStart="40dp"
-       android:layout_marginEnd="40dp"
+       android:layout_marginLeft="40dp"
+       android:layout_marginRight="40dp"
        android:layout_marginTop="11dp"
        android:background="@drawable/edit_text_corner_radius"
        android:padding="13dp"
@@ -106,8 +104,8 @@ x
        android:textSize="11dp"
        android:layout_below="@+id/signup_idemail"
        android:textColor="#ffffff"
-       android:layout_marginRight="42dp"
-       android:layout_marginLeft="42dp"
+       android:layout_marginLeft="40dp"
+       android:layout_marginRight="40dp"
        android:layout_marginTop="24dp"
        />
 
@@ -116,8 +114,8 @@ x
        android:layout_width="329dp"
        android:layout_height="wrap_content"
        android:layout_below="@+id/signup_phone"
-       android:layout_marginStart="40dp"
-       android:layout_marginEnd="40dp"
+       android:layout_marginLeft="40dp"
+       android:layout_marginRight="40dp"
        android:layout_marginTop="11dp"
        android:background="@drawable/edit_text_corner_radius"
        android:padding="13dp"
@@ -134,37 +132,40 @@ x
        android:text="Register"
        android:textSize="18dp"
        android:textColor="#3A8BE7"
-       android:layout_centerInParent="true"
-       android:layout_marginTop="50dp"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="20dp"
        android:backgroundTint="#ffffff"
        app:cornerRadius="50dp"
        />
 
    <LinearLayout
-       android:layout_width="match_parent"
+       android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_below="@id/signup_buttonregister"
-       android:layout_marginTop="60dp"
-       android:gravity="center"
-       android:layout_marginHorizontal="80dp">
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:orientation="horizontal"
+       android:layout_marginBottom="20dp">
 
       <TextView
+          android:id="@+id/signin_redirect"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/signup"
           android:textColor="#ffffff"
-          android:textSize="12dp" />
+          android:textSize="12dp"/>
 
       <TextView
           android:id="@+id/signin_button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Sign Up"
+          android:text="Sign In"
           android:textColor="@color/white"
           android:textSize="12sp"
           android:textStyle="bold"
           android:clickable="true"/>
+
    </LinearLayout>
+
 
 
 </RelativeLayout>

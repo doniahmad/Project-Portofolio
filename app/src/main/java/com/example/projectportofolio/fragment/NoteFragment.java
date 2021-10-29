@@ -59,8 +59,9 @@ public class NoteFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.note_rv);
 
-        realm = Realm.getDefaultInstance();
         realm.init(getActivity());
+        realm = Realm.getDefaultInstance();
+
         realmHelper = new RealmHelper(realm);
         list = new ArrayList<>();
 

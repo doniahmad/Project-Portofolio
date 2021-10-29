@@ -35,7 +35,6 @@ public class signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        getSupportActionBar().hide();
         FirebaseFirestore database = FirebaseFirestore.getInstance();
 
         username =findViewById(R.id.signup_idusertext);
@@ -84,11 +83,11 @@ public class signup extends AppCompatActivity {
                                     break;
                                 }
                             }
-
-                            if (target != null) {
-                                Toast.makeText(signup.this, "User already exist!", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
+//
+//                            if (target != null) {
+//                                Toast.makeText(signup.this, "User already exist!", Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
 
                             Map<String, Object> map = new HashMap<>();
                             map.put("email", email.getText().toString());
@@ -107,8 +106,9 @@ public class signup extends AppCompatActivity {
                                                 if (task.isSuccessful()) {
                                                     UserManager.setInstance(task.getResult());
                                                     Toast.makeText(signup.this, "User Created", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(signup.this,MainActivity.class);
+                                                    Intent intent = new Intent(signup.this,login.class);
                                                     startActivity(intent);
+                                                    closeContextMenu();
                                                 } else  {
                                                     Toast.makeText(signup.this, "User Created but failed to fetch user from database", Toast.LENGTH_SHORT).show();
                                                 }

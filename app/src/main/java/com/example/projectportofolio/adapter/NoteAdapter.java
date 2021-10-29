@@ -103,7 +103,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder> 
                             notifyItemRemoved(id);
                             notifyItemRangeChanged(id, noteModels.size());
                             notifyDataSetChanged();
-                            Toast.makeText(context,"Posisi  "+id+" dihapus",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Note telah dihapus",Toast.LENGTH_SHORT).show();
                         }
                     });
 
