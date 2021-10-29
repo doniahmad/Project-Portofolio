@@ -2,10 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.projectportofolio">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
-        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectPortofolio">
         <activity android:name=".SplashScreen">
+        <activity android:name=".login"></activity>
+        <activity android:name=".signup" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
