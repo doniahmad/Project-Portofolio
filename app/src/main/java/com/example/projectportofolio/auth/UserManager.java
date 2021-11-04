@@ -1,7 +1,6 @@
-package com.example.projectportofolio;
+package com.example.projectportofolio.auth;
 
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class UserManager {
     private static DocumentSnapshot instance;

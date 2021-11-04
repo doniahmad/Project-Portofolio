@@ -7,10 +7,26 @@
     tools:context=".Note.NoteDetail"
     android:background="#DDDBDB">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Note"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            android:background="@color/top_nav"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
+        android:layout_below="@id/top_bar"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +65,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
         android:contentDescription="Tambah"
         app:srcCompat="@drawable/ic_baseline_edit_24"
         app:tint="@color/white"

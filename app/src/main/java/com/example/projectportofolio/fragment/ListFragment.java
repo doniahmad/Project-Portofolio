@@ -79,8 +79,11 @@ public class ListFragment extends Fragment {
                                 String desc = newsObject.getString("description");
                                 String img = newsObject.getString("urlToImage");
                                 String url = newsObject.getString("url");
+                                String author = newsObject.getString("author");
+                                String publish = newsObject.getString("publishedAt");
+                                String content = newsObject.getString("content");
 
-                                model.add(new NewsModel(title,desc,img,url));
+                                model.add(new NewsModel(title,desc,img,url,author,publish,content));
                             }
                             adapter = new NewsAdapter(getContext(), model);
                             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());

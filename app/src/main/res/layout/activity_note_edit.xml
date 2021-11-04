@@ -17,6 +17,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginHorizontal="5dp"/>
+
             <EditText
                 android:id="@+id/title_edit"
                 android:layout_width="match_parent"
@@ -28,6 +36,15 @@
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginBottom="10dp"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Text"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="15dp"/>
 
             <EditText
                 android:id="@+id/text_edit"
@@ -50,12 +67,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
         android:contentDescription="Tambah"
         app:srcCompat="@drawable/ic_baseline_check_24"
         app:tint="@color/white"
         tools:ignore="VectorDrawableCompat"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

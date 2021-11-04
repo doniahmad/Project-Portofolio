@@ -4,31 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
+
+import com.example.projectportofolio.auth.login;
 
 public class Splashscreen extends AppCompatActivity {
+
+    LinearLayout logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
-        Thread background  = new Thread() {
+        logo = findViewById(R.id.content_logo);
+
+        Animation logo_animation = AnimationUtils.loadAnimation(this,R.anim.logo_anim);
+        logo.startAnimation(logo_animation);
+
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                try {
-
-                    sleep(3 * 1000);
-                    Intent intent = new Intent(getApplicationContext(), signup.class);
-                    startActivity(intent);
-
-                    finish();
-                } catch (Exception e) {
-
-                }
+                Intent intent = new Intent(getApplicationContext(), login.class);
+                startActivity(intent);
+                finish();
             }
-        };
-        background.start();
-
-
+        },3000);
     }
 }

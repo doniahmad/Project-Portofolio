@@ -1,4 +1,4 @@
-package com.example.projectportofolio;
+package com.example.projectportofolio.auth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projectportofolio.MainActivity;
+import com.example.projectportofolio.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,24 +34,29 @@ public class signup extends AppCompatActivity {
     EditText phone;
     Button btn;
     TextView signin_button;
+    FirebaseAuth mAuth;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         FirebaseFirestore database = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         username =findViewById(R.id.signup_idusertext);
         email = findViewById(R.id.signup_idemail);
         password = findViewById(R.id.signup_idpassword);
         phone = findViewById(R.id.signup_idphone);
+        progressBar = findViewById(R.id.progress_bar);
         btn = findViewById(R.id.signup_buttonregister);
         signin_button = findViewById(R.id.signin_button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 if (UserManager.getInstance() != null) {
-                    Toast.makeText(signup.this, "User already logged in!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(signup.this, "Berhasil Masuk!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(signup.this, MainActivity.class));
                     finish();
                     return;
@@ -106,7 +115,7 @@ public class signup extends AppCompatActivity {
                                                 if (task.isSuccessful()) {
                                                     UserManager.setInstance(task.getResult());
                                                     Toast.makeText(signup.this, "User Created", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(signup.this,login.class);
+                                                    Intent intent = new Intent(signup.this, login.class);
                                                     startActivity(intent);
                                                     closeContextMenu();
                                                 } else  {
@@ -119,6 +128,7 @@ public class signup extends AppCompatActivity {
                                     }
                                 }
                             });
+                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });

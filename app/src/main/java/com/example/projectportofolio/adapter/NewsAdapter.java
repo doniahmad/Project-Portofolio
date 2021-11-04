@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projectportofolio.NewsDetail;
 import com.example.projectportofolio.R;
 import com.example.projectportofolio.WebsiteView;
 import com.example.projectportofolio.model.NewsModel;
@@ -79,9 +80,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ListViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent webActivity = new Intent(view.getContext(), WebsiteView.class);
-                webActivity.putExtra("url",model.getNewsUrl());
-                view.getContext().startActivity(webActivity);
+                Intent intent = new Intent(view.getContext(), NewsDetail.class);
+                intent.putExtra("title",model.getNewsTitle());
+                intent.putExtra("author",model.getNewsAuthor());
+                intent.putExtra("publish",model.getNewsPublish());
+                intent.putExtra("img",model.getNewsImg());
+                intent.putExtra("content",model.getNewsContent());
+                intent.putExtra("url",model.getNewsUrl());
+                view.getContext().startActivity(intent);
             }
         });
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.projectportofolio.R;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class NoteDetail extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class NoteDetail extends AppCompatActivity {
     String title,text;
     Integer id;
     Bundle bundle;
+    MaterialToolbar topappbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class NoteDetail extends AppCompatActivity {
         title_edit = findViewById(R.id.title_detail);
         text_edit = findViewById(R.id.text_detail);
         edit_btn = findViewById(R.id.edit_button);
+        topappbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(topappbar);
 
         bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -46,6 +50,13 @@ public class NoteDetail extends AppCompatActivity {
                 intent.putExtra("title",title);
                 intent.putExtra("text",text);
                 startActivity(intent);
+            }
+        });
+
+        topappbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

@@ -35,8 +35,6 @@ public class NoteEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_edit);
 
-
-
         edit_title = findViewById(R.id.title_edit);
         edit_text = findViewById(R.id.text_edit);
         btn_yes = findViewById(R.id.yes_button);
