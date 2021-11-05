@@ -76,7 +76,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ListViewHolder
         final NewsModel model = dataListFiltered.get(position);
         holder.txt_title.setText(model.getNewsTitle());
         holder.txt_desc.setText(model.getNewsDesc());
-        Picasso.get().load(dataList.get(position).getNewsImg()).into(holder.img_news);
+        if (dataList.get(position).getNewsImg().isEmpty()) {
+            holder.img_news.setImageResource(R.drawable.ic_baseline_error_24);
+        } else{
+            Picasso.get().load(dataList.get(position).getNewsImg()).into(holder.img_news);
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
