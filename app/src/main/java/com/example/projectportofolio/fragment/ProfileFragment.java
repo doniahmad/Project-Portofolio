@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectportofolio.EditProfile;
 import com.example.projectportofolio.MainActivity;
@@ -42,6 +44,7 @@ public class ProfileFragment extends Fragment {
     TextView username_txt, email_txt, phone_txt, profile_name;
     FirebaseAuth mAuth;
     FirebaseFirestore mStore;
+    RelativeLayout progressBar;
 
     @Nullable
     @Override
@@ -54,6 +57,7 @@ public class ProfileFragment extends Fragment {
         username_txt = view.findViewById(R.id.username_txt);
         email_txt = view.findViewById(R.id.email_txt);
         phone_txt = view.findViewById(R.id.phone_txt);
+        progressBar = view.findViewById(R.id.load_profile);
 
         Task<QuerySnapshot> dataUsers = mStore.collection("users").get();
         dataUsers.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -64,6 +68,7 @@ public class ProfileFragment extends Fragment {
                     email_txt.setText(UserManager.getInstance().getString("email"));
                     phone_txt.setText(UserManager.getInstance().getString("phone"));
                     profile_name.setText(UserManager.getInstance().getString("username"));
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });

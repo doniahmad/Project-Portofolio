@@ -22,45 +22,13 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ListViewHolder> implements Filterable {
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ListViewHolder> {
     private ArrayList<NewsModel> dataList;
-    private ArrayList<NewsModel> dataListFiltered;
     private Context mContext;
-
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String character = charSequence.toString();
-                if (character.isEmpty()){
-                    dataListFiltered = dataList;
-                } else {
-                    ArrayList<NewsModel> dataListfilter = new ArrayList<>();
-                    for (NewsModel row: dataList){
-                        if (row.getNewsTitle().toLowerCase().contains(character.toLowerCase())){
-                            dataListfilter.add(row);
-                        }
-                    }
-                    dataListFiltered = dataListfilter;
-                }
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = dataListFiltered;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                dataListFiltered = (ArrayList<NewsModel>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
-    }
 
     public NewsAdapter(Context mContext, ArrayList<NewsModel> dataList) {
         this.mContext = mContext;
         this.dataList = dataList;
-        this.dataListFiltered = dataList;
     }
 
     @NonNull
@@ -73,7 +41,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ListViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NewsAdapter.ListViewHolder holder, int position) {
-        final NewsModel model = dataListFiltered.get(position);
+        final NewsModel model = dataList.get(position);
         holder.txt_title.setText(model.getNewsTitle());
         holder.txt_desc.setText(model.getNewsDesc());
         if (dataList.get(position).getNewsImg().isEmpty()) {
@@ -99,7 +67,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ListViewHolder
 
     @Override
     public int getItemCount() {
-        return dataListFiltered.size();
+        return dataList.size();
     }
 
     public class ListViewHolder extends RecyclerView.ViewHolder {

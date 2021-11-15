@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,12 +38,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ListFragment extends Fragment {
+public class ListFragment extends Fragment implements Toolbar.OnMenuItemClickListener {
     private String BASE_URL = "https://newsapi.org/v2/top-headlines?country=id&apiKey=ff5bb09ab43f48a7b05c9edff080af4b";
     private RecyclerView recyclerView;
     private NewsAdapter adapter;
     private ArrayList<NewsModel> model;
     private ProgressBar progressBar;
+    private MaterialToolbar appbar;
 
     @Nullable
     @Override
@@ -58,8 +60,11 @@ public class ListFragment extends Fragment {
         recyclerView = view.findViewById(R.id.list_rv);
         progressBar = view.findViewById(R.id.progress_bar);
         recyclerView.setHasFixedSize(true);
+        appbar = view.findViewById(R.id.appbar);
         addData();
 
+        appbar.setOnMenuItemClickListener(this);
+        appbar.setTitle("Berita Teratas");
     }
 
 
@@ -102,29 +107,41 @@ public class ListFragment extends Fragment {
                 });
     }
 
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        super.onCreateOptionsMenu(menu, inflater);
-//        inflater.inflate(R.menu.search_nav,menu);
-//
-//        MenuItem searchItem = menu.findItem(R.id.action_search);
-//
-//        SearchView searchView = (SearchView) searchItem.getActionView();
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-////                adapter.getFilter().filter(query);
-//                Toast.makeText(getActivity(),"Test",Toast.LENGTH_SHORT).show();
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-////                adapter.getFilter().filter(newText);
-//                Toast.makeText(getActivity(),"Test",Toast.LENGTH_SHORT).show();
-//                return false;
-//            }
-//        });
-//    }
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        progressBar.setVisibility(View.VISIBLE);
+        switch (item.getItemId()){
+            case R.id.headline :
+                BASE_URL = "https://newsapi.org/v2/top-headlines?country=id&apiKey=ff5bb09ab43f48a7b05c9edff080af4b";
+                appbar.setTitle("Berita Teratas");
+                addData();
+                break;
+
+            case R.id.bisnis :
+                BASE_URL = "https://newsapi.org/v2/top-headlines?country=id&category=business&apiKey=ff5bb09ab43f48a7b05c9edff080af4b";
+                appbar.setTitle("Berita Bisnis");
+                addData();
+                break;
+
+            case R.id.kesehatan :
+                BASE_URL = "https://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=ff5bb09ab43f48a7b05c9edff080af4b";
+                appbar.setTitle("Berita Kesehatan");
+                addData();
+                break;
+
+            case R.id.olahraga :
+                BASE_URL = "https://newsapi.org/v2/top-headlines?country=id&category=sports&apiKey=ff5bb09ab43f48a7b05c9edff080af4b";
+                appbar.setTitle("Berita Olahraga");
+                addData();
+                break;
+
+            case R.id.teknologi :
+                BASE_URL = "https://newsapi.org/v2/top-headlines?country=id&category=technology&apiKey=ff5bb09ab43f48a7b05c9edff080af4b";
+                appbar.setTitle("Berita Teknologi");
+                addData();
+                break;
+
+        }
+        return false;
+    }
 }

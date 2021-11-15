@@ -5,11 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:subtitleTextColor="@color/white"
+            app:titleTextColor="@color/white"
+            app:title="Note"
+            android:background="@color/top_nav"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/note_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_bar"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/tambah_button"

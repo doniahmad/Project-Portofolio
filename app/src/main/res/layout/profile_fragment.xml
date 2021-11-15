@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:subtitleTextColor="@color/white"
+            app:titleTextColor="@color/white"
+            app:title="Profile"
+            android:background="@color/top_nav"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <ImageView
         android:id="@+id/imageprofile"
@@ -131,5 +149,19 @@
             android:text="Edit Profile"
             android:textStyle="bold"
             android:backgroundTint="#2196F3"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/load_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/teal_200"
+            />
     </RelativeLayout>
 </RelativeLayout>

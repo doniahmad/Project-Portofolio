@@ -12,21 +12,6 @@
         android:orientation="vertical"
         android:layout_above="@+id/bot_nav">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/appbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:subtitleTextColor="@color/white"
-                app:titleTextColor="@color/white"
-                app:menu="@menu/search_nav"
-                android:background="@color/top_nav"/>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"

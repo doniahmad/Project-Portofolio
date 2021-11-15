@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/headline"
+        android:title="Top News"
+        />
+
+    <item
+        android:id="@+id/bisnis"
+        android:title="Bisnis"
+        />
+
+    <item
+        android:id="@+id/kesehatan"
+        android:title="Kesehatan"
+        />
+
+    <item
+        android:id="@+id/olahraga"
+        android:title="Olahraga"
+        />
+
+    <item
+        android:id="@+id/teknologi"
+        android:title="Teknologi"
+        />
+</menu>

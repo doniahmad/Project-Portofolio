@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.projectportofolio.Note.NoteDetail;
 import com.example.projectportofolio.fragment.ListFragment;
@@ -18,16 +19,10 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
-    MaterialToolbar appbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        appbar = findViewById(R.id.appbar);
-        appbar.setTitle("News");
-
 
         BottomNavigationView bottomNav = findViewById(R.id.bot_nav);
         bottomNav.setOnItemSelectedListener(navListener);
@@ -45,17 +40,15 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.nav_list:
                     selectedFragment = new ListFragment();
-                    appbar.setTitle("News");
                     break;
 
                 case R.id.nav_note:
                     selectedFragment = new NoteFragment();
-                    appbar.setTitle("Note");
                     break;
 
                 case R.id.nav_profile:
                     selectedFragment = new ProfileFragment();
-                    appbar.setTitle("Profile");
+
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
