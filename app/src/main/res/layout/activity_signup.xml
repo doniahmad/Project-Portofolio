@@ -42,7 +42,8 @@ x
        android:layout_marginRight="40dp"
        android:background="@drawable/edit_text_corner_radius"
        android:elevation="4dp"
-       android:padding="13dp" />
+       android:padding="13dp"
+       android:textColor="@color/black"/>
 
    <TextView
        android:id="@+id/signup_password"
@@ -69,6 +70,7 @@ x
        android:background="@drawable/edit_text_corner_radius"
        android:padding="13dp"
        android:elevation="4dp"
+       android:textColor="@color/black"
        />
 
    <TextView
@@ -95,6 +97,7 @@ x
        android:background="@drawable/edit_text_corner_radius"
        android:padding="13dp"
        android:elevation="4dp"
+       android:textColor="@color/black"
        />
 
    <TextView
@@ -121,6 +124,7 @@ x
        android:background="@drawable/edit_text_corner_radius"
        android:padding="13dp"
        android:elevation="4dp"
+       android:textColor="@color/black"
        />
 
    <Button
